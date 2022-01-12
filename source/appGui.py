@@ -133,6 +133,19 @@ class Window(QMainWindow, Ui_MainWindow):
         elif not self.logged_in:
             self.open_login_dialog()
 
+    # run worker on thread that searches and return results through signal callback
+    def send_search_playlisy_input(self):
+        if ZSpotify.SESSION:
+            search = self.searchInput.text()
+            worker = Worker(ZSpotify.searchIdPlaylist, search)
+            worker.signals.result.connect(self.display_results)
+            worker.signals.error.connect(self.on_api_error)
+            QThreadPool.globalInstance().start(worker)
+            self.musicTabs.setCurrentIndex(1)
+            self.searchTabs.setCurrentIndex(3)
+        elif not self.logged_in:
+            self.open_login_dialog()
+
     def display_results(self, results):
         self.selected_tab.focus()
         self.results = results
@@ -221,6 +234,7 @@ class Window(QMainWindow, Ui_MainWindow):
 
     def init_signals(self):
         self.searchBtn.clicked.connect(self.send_search_input)
+        self.searchPlaylistBtn.clicked.connect(self.send_search_playlisy_input)
         self.searchInput.returnPressed.connect(self.send_search_input)
         self.musicTabs.currentChanged.connect(self.on_music_tab_change)
         self.searchTabs.currentChanged.connect(self.on_tab_change)

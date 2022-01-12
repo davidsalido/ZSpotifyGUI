@@ -68,7 +68,7 @@
             </size>
            </property>
            <property name="placeholderText">
-            <string>Search Spotify</string>
+            <string>Search by name or put your playlist id</string>
            </property>
           </widget>
          </item>
@@ -76,6 +76,13 @@
           <widget class="QPushButton" name="searchBtn">
            <property name="text">
             <string>Search</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="searchPlaylistBtn">
+           <property name="text">
+            <string>Search by id</string>
            </property>
           </widget>
          </item>
@@ -295,11 +302,11 @@ QTabWidget::tab-bar
                     <property name="animated">
                      <bool>true</bool>
                     </property>
-                    <attribute name="headerDefaultSectionSize">
-                     <number>270</number>
-                    </attribute>
                     <attribute name="headerMinimumSectionSize">
                      <number>15</number>
+                    </attribute>
+                    <attribute name="headerDefaultSectionSize">
+                     <number>270</number>
                     </attribute>
                     <column>
                      <property name="text">
@@ -348,11 +355,11 @@ QTabWidget::tab-bar
                     <property name="animated">
                      <bool>true</bool>
                     </property>
-                    <attribute name="headerDefaultSectionSize">
-                     <number>270</number>
-                    </attribute>
                     <attribute name="headerMinimumSectionSize">
                      <number>15</number>
+                    </attribute>
+                    <attribute name="headerDefaultSectionSize">
+                     <number>270</number>
                     </attribute>
                     <column>
                      <property name="text">
@@ -373,7 +380,7 @@ QTabWidget::tab-bar
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_15">
               <property name="spacing">
-               <number>-1</number>
+               <number>7</number>
               </property>
               <property name="leftMargin">
                <number>1</number>
@@ -435,11 +442,11 @@ QTabWidget::tab-bar
                     <property name="animated">
                      <bool>true</bool>
                     </property>
-                    <attribute name="headerDefaultSectionSize">
-                     <number>230</number>
-                    </attribute>
                     <attribute name="headerMinimumSectionSize">
                      <number>15</number>
+                    </attribute>
+                    <attribute name="headerDefaultSectionSize">
+                     <number>230</number>
                     </attribute>
                     <column>
                      <property name="text">
@@ -506,11 +513,11 @@ QTabWidget::tab-bar
                     <property name="animated">
                      <bool>true</bool>
                     </property>
-                    <attribute name="headerDefaultSectionSize">
-                     <number>230</number>
-                    </attribute>
                     <attribute name="headerMinimumSectionSize">
                      <number>15</number>
+                    </attribute>
+                    <attribute name="headerDefaultSectionSize">
+                     <number>230</number>
                     </attribute>
                     <column>
                      <property name="text">
@@ -554,11 +561,11 @@ QTabWidget::tab-bar
                     <property name="animated">
                      <bool>true</bool>
                     </property>
-                    <attribute name="headerDefaultSectionSize">
-                     <number>230</number>
-                    </attribute>
                     <attribute name="headerMinimumSectionSize">
                      <number>15</number>
+                    </attribute>
+                    <attribute name="headerDefaultSectionSize">
+                     <number>230</number>
                     </attribute>
                     <column>
                      <property name="text">
@@ -617,11 +624,11 @@ QTabWidget::tab-bar
                     <property name="animated">
                      <bool>true</bool>
                     </property>
-                    <attribute name="headerDefaultSectionSize">
-                     <number>230</number>
-                    </attribute>
                     <attribute name="headerMinimumSectionSize">
                      <number>15</number>
+                    </attribute>
+                    <attribute name="headerDefaultSectionSize">
+                     <number>230</number>
                     </attribute>
                     <column>
                      <property name="text">
@@ -695,11 +702,11 @@ QTabWidget::tab-bar
                     <property name="alternatingRowColors">
                      <bool>true</bool>
                     </property>
-                    <attribute name="headerDefaultSectionSize">
-                     <number>270</number>
-                    </attribute>
                     <attribute name="headerMinimumSectionSize">
                      <number>15</number>
+                    </attribute>
+                    <attribute name="headerDefaultSectionSize">
+                     <number>270</number>
                     </attribute>
                     <column>
                      <property name="text">
@@ -1217,7 +1224,7 @@ QTabWidget::tab-bar
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_8">
            <property name="spacing">
-            <number>-1</number>
+            <number>7</number>
            </property>
            <property name="leftMargin">
             <number>0</number>

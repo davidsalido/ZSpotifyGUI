@@ -30,6 +30,7 @@ class ZSpotify:
     DOWNLOAD_QUALITY = None
     IS_PREMIUM = False
     SEARCH_URL = 'https://api.spotify.com/v1/search'
+    SEARCH_URL_PLAYLIST = 'https://api.spotify.com/v1/playlists/'
 
 
     @classmethod
@@ -139,6 +140,29 @@ class ZSpotify:
                     counter += 1
                 except Exception as e:
                     logger.error(e)
+        return results
+
+    @classmethod
+    def searchIdPlaylist(cls, search_terms):
+        # Clean search term
+        """ Searches Spotify's API for relevant data """
+
+        playlist = cls.invoke_url(cls.SEARCH_URL_PLAYLIST + search_terms)[1]
+
+        dics = []
+        results = {TRACKS:[], ARTISTS:[],ALBUMS:[], PLAYLISTS:[]}
+        counter = 1
+
+        try:
+            if len(playlist[IMAGES]) > 0:
+                url = playlist[IMAGES][0][URL]
+            else:
+                url = ""
+            playlist = Playlist(counter, playlist[ID], playlist[NAME], playlist[OWNER][DISPLAY_NAME], playlist[TRACKS][TOTAL], img=url)
+            results[PLAYLISTS].append(playlist)
+            counter += 1
+        except Exception as e:
+            logger.error(e)
         return results
 
     @classmethod
